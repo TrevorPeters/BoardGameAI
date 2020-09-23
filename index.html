@@ -1,29 +1,31 @@
 <!DOCTYPE HTML>
 <html>
 
-
     <body>
         <label for="AIamount">AI amount (0 - 2):</label>
-        <input type="number" id="AI" name="AI"><br><br>
+        <input type="number" id="AI" name="AI"><br>
 
         <label for="playerOne">Player One:</label>
-        <input type="text" id="playerOne" name="playerOne"><br><br>
+        <input type="text" id="playerOne" name="playerOne"><br>
 
         <label for="playerOneToken">Player One Token ("w" or "b"):</label>
-        <input type="text" id="playerOneToken" name="playerOneToken"><br><br>
+        <input type="text" id="playerOneToken" name="playerOneToken"><br>
 
         <label for="playerTwo">Player Two:</label>
-        <input type="text" id="playerTwo" name="playerTwo"><br><br>
+        <input type="text" id="playerTwo" name="playerTwo"><br>
 
         <button id = "start">Play!</button>
-        <p>Before the script...</p>
-
-        <script src="./index.js"></script>
-
-        <p>...After the script.</p>
 
         <p id = "GameBoardDisplay" style="font-family:courier New"></p>
+        <label for="position">Position (i.e. 1/5):</label>
+        <input type="text" id="position" name="position"><br>
 
+        <label for="rotation">Rotation (i.e. 0L):</label>
+        <input type="text" id="rotation" name="rotation"><br>
+
+        <button id = "move">move!</button>
+
+        <script src="./index.js"></script>
 
     </body>
 
