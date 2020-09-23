@@ -4,11 +4,12 @@ document.getElementById("start").onclick = function(){
     var playerOne = document.getElementById("playerOne").value;
     var playerTwo = document.getElementById("playerTwo").value;
     var AI = document.getElementById("AI").value;
-    var playerOneToken = document.getElementById("playerOneToken").value;
-    //alert("\n text " + playerTwo + playerOne + AI + playerOneToken);
+    var playerOneToken = document.getElementById("playerOneToken").value.toLowerCase();
+    var playerTwoToken = (playerOneToken == "w") ? "b" : "w";
+    //alert("text " + playerTwo + playerOne + AI + playerOneToken + playerTwoToken);
     var Game = GameBoard;
-    Game.rotateRight(3);
-    //var board = Game.toString();
-    //alert(board);
+    //Game.rotate("4R");
+    alert(Game.checkWinner());
+    //alert(Game.bWon + "\n" + Game.wWon);
     document.getElementById("GameBoardDisplay").innerHTML = Game.toString();  
 }
