@@ -1,24 +1,23 @@
 import {GameBoard} from './GameBoard.js'
 
-var playerOne;
-var playerTwo;
 var AI;
-var playerOneToken;
-var playerTwoToken;
+var playerOneToken = "w";
+var playerTwoToken = "b";
 var Game = GameBoard;
 var turn = 0;
+
+document.getElementById("GameBoardDisplay").innerHTML = Game.toString();  
+
 document.getElementById("start").onclick = function Initialize() {
-    playerOne = document.getElementById("playerOne").value;
-    playerTwo = document.getElementById("playerTwo").value;
     AI = document.getElementById("AI").value;
-    playerOneToken = document.getElementById("playerOneToken").value.toLowerCase();
-    playerTwoToken = (playerOneToken == "w") ? "b" : "w";
-    //alert("text " + playerTwo + playerOne + AI + playerOneToken + playerTwoToken);
-    //alert(Game.checkWinner());
-    document.getElementById("GameBoardDisplay").innerHTML = Game.toString();  
+    document.getElementById("playerTurn").innerHTML = "Player " + (turn + 1) + "'s turn";
 }
 
 document.getElementById("move").onclick = function move() {
+    if (Game.bWon || Game.wWon){
+        document.getElementById("playerTurn").innerHTML = "Game Over!";
+        return;
+    }
     var pos = document.getElementById("position").value;
     var rot = document.getElementById("rotation").value;
     var token = (turn == 0) ? playerOneToken : playerTwoToken;
@@ -28,4 +27,5 @@ document.getElementById("move").onclick = function move() {
     Game.rotate(rot);
     Game.checkWinner();
     document.getElementById("GameBoardDisplay").innerHTML = Game.toString();
+    document.getElementById("playerTurn").innerHTML = "Player " + (turn + 1) + "'s turn";
 }
